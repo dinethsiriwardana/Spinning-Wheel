@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spin the Wheel</title>
+    <style>
+
+        body {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(157deg, rgba(2,0,36,1) 0%, rgb(133, 208, 254) 0%, rgb(173, 233, 246) 80%);
+            -webkit-user-select: none; /* For Safari and Chrome */
+  -moz-user-select: none; /* For Firefox */
+  -ms-user-select: none; /* For Internet Explorer and Edge */
+  user-select: none; /* Standard syntax */
+
+        }
+
+        .wheel-logo {
+            transform: rotate(90deg);
+        }
+
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+        }
+
+        #chart {
+            margin: 0 auto;
+            width: 500px;
+            height: 500px;
+            transform: scale(1.5) rotate(-90deg);
+        }
+
+        #modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: auto;
+            background-color: rgba(102, 219, 255, 0.6);
+            padding-top: 0px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+
+        }
+
+        .glow {
+            text-shadow: 0 0 5px #E24479, 0 0 5px #fc7fb9, 0 0 5px #E24479;
+        
+}
+
+
+#modal-content {
+            
+            margin: 5% auto;
+            padding: 10px;
+        width: 500px;
+        background-color: #ffffff;
+            text-align: center; /* Center the text and image */
+            border-radius: 40px;
+            color: #ffffff;
+        border-radius: 50px;
+        
+        backdrop-filter: blur(7.9px);
+        -webkit-backdrop-filter: blur(7.9px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-gradient {
+  background: radial-gradient(
+    ellipse farthest-corner at right bottom,
+    #f8cfd7 0%,
+    #E24479 8%,
+    #E24479 30%,
+    #b92c5b 40%,
+    transparent 80%
+  ),
+  radial-gradient(
+    ellipse farthest-corner at left top,
+    #E24479 0%,
+    #E24479 8%,
+    #E24479 25%,
+    #E24479 62.5%,
+    #E24479 100%
+  );
+  background-size: 150% 100%;
+  transition: background-position 0.3s ease, transform 0.2s ease;
+  background-position: 50% 0%;
+}
+
+        
+
+#gift-image {
+    display: block; /* Ensure the image is a block element */
+    margin: 10px auto; /* Center the image horizontally and add margin */
+    width: 100px; /* Set the desired width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+        #close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            visibility: hidden;
+        }
+
+        #close:hover,
+        #close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .contmodal{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slice-image img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+        }
+
+        
+    </style>
+</head>
+<body>
+    
+    <div id="spin-container" class="spin-container">
+        <div class="container">
+            <div id="chart">
+            </div>
+        </div>
+    </div>
+    <div id="modal">
+        <div id="contmodal" class="contmodal">
+        <div class=" btn-gradient" id="modal-content">
+            <span  id="close" class="close-button" >&times;</span>
+            <h2 class="" id="congratulations"></h1>
+            <h1 class="" id="text"></h1>
+            <img id="gift-image" src="" alt="Gift Image" style="width: 150px; height: auto; margin-top: 10px;">
+        </div>
+    </div>
+
+    
+    </div>
+
+    <script src="libs/d3.min.js" charset="utf-8"></script>
+    <script src="scripts.js"></script>
+
+
+</body>
+</html>
