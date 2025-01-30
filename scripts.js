@@ -1,14 +1,17 @@
 // scripts.js
 
 var data = [
-  { label: "Item1", value: 1, text: "sssss", img: null, stock: 50 },
+  { label: "Item3", value: 1, text: "", img: "images/pack.png", stock: 50 },
   { label: "Item2", value: 2, text: "Try Again", img: null, stock: 300 },
-  { label: "Item3", value: 3, text: "Sticker Packs", img: null, stock: 50 },
+  { label: "Item1", value: 3, text: "", img: "images/pack.png", stock: 50 },
   { label: "Item4", value: 4, text: "Try Again", img: null, stock: 300 },
-  { label: "Item5", value: 5, text: "Face Towels", img: null, stock: 50 },
+  { label: "Item5", value: 5, text: "", img: "images/mug.png", stock: 50 },
   { label: "Item6", value: 6, text: "Try Again", img: null, stock: 60 },
-  { label: "Item7", value: 7, text: "Face Wash", img: null, stock: 2 },
-  { label: "Item8", value: 8, text: "Try Again", img: null, stock: 30 },
+  { label: "Item7", value: 7, text: "", img: "images/umbrella.png", stock: 2 },
+  { label: "Item8", value: 8, text: "", img: "images/pack.png", stock: 30 },
+  { label: "Item8", value: 9, text: "Try Again", img: null, stock: 30 },
+  { label: "Item8", value: 10, text: "", img: "images/pack.png", stock: 30 },
+  { label: "Item8", value: 11, text: "Try Again", img: null, stock: 30 },
 ];
 
 // Function to save data to local storage
@@ -62,9 +65,12 @@ var colors = [
   "#315FAA",
   "#315FAA",
   "#315FAA",
+  "#315FAA",
+  "#315FAA",
+  "#315FAA",
 ];
 
-var padding = { top: 0, right: 0, bottom: 0, left: 0 },
+var padding = { top: 20, right: 20, bottom: 2, left: 20 },
   w = 500 - padding.left - padding.right,
   h = 500 - padding.top - padding.bottom,
   r = Math.min(w, h) / 2,
@@ -103,17 +109,19 @@ var arcs = vis
   .append("g")
   .attr("class", "slice");
 
+// Update the arcs to handle both images and text
 arcs
   .append("path")
   .attr("fill", function (d, i) {
     return colors[i];
-  }) // Use defined colors
+  })
   .attr("d", function (d) {
     return arc(d);
   })
-  .style("stroke", "#FFFFFF") // Add white border
-  .style("stroke-width", "5");
+  .style("stroke", "#FFFFFF") // Border added
+  .style("stroke-width", "5"); // Border width
 
+// Add images
 arcs
   .append("image")
   .attr("xlink:href", function (d, i) {
@@ -121,31 +129,31 @@ arcs
   })
   .attr("x", function (d, i) {
     var angle = (d.startAngle + d.endAngle) / 2;
-    return Math.cos(angle - Math.PI / 2) * (r - 40) - 40;
+    return Math.cos(angle - Math.PI / 2) * (r - 60) - 30; // Adjusted position
   })
   .attr("y", function (d, i) {
     var angle = (d.startAngle + d.endAngle) / 2;
-    return Math.sin(angle - Math.PI / 2) * (r - 40) - 20;
+    return Math.sin(angle - Math.PI / 2) * (r - 60) - 30; // Adjusted position
   })
-  .attr("width", 80)
-  .attr("height", 80)
-  .attr("class", "slice-image")
+  .attr("width", 60) // Image size
+  .attr("height", 60) // Image size
   .attr("transform", function (d) {
     var angle = (d.startAngle + d.endAngle) / 2;
     return (
       "rotate(" +
-      (angle * 180) / Math.PI +
+      ((angle * 180) / Math.PI - 90) +
       "," +
-      Math.cos(angle - Math.PI / 2) * (r - 40) +
+      Math.cos(angle - Math.PI / 2) * (r - 60) +
       "," +
-      Math.sin(angle - Math.PI / 2) * (r - 40) +
+      Math.sin(angle - Math.PI / 2) * (r - 60) +
       ")"
     );
   })
-  .attr("visibility", function (d, i) {
+  .style("visibility", function (d, i) {
     return data[i].img ? "visible" : "hidden";
   });
 
+// Add text
 arcs
   .append("text")
   .attr("transform", function (d) {
@@ -155,18 +163,21 @@ arcs
     return (
       "rotate(" +
       ((d.angle * 180) / Math.PI - 90) +
-      ")translate(" +
-      (d.outerRadius - 20) +
+      ")" +
+      "translate(" +
+      (d.outerRadius - 40) +
       ")"
-    ); // Adjusted for closer text
+    );
   })
   .attr("text-anchor", "end")
   .text(function (d, i) {
-    return data[i].img ? "" : data[i].text;
+    // Show "Try Again" text if no image, otherwise show the item's text
+    return data[i].img ? "" : data[i].text || "Try Again";
   })
-  .style("fill", "white") // Change this to your desired text color
-  .style("font-size", "20px") // Optional: Change font size if needed
-  .style("font-weight", "bold"); // Optional: Change font weight if needed
+  .style("fill", "white")
+  .style("font-size", "16px")
+  .style("font-weight", "bold")
+  .attr("dy", ".35em"); // Vertical alignment
 
 // Function to close modal on clicking anywhere in the browser window
 window.addEventListener("click", function (event) {
@@ -295,9 +306,9 @@ container
 container
   .append("image")
   .attr("xlink:href", "images/Logo.png") // Replace with the path to your logo
-  .attr("x", -38) // Adjust based on the size of your logo
-  .attr("y", -51) // Adjust based on the size of your logo
-  .attr("width", 80) // Set the width of the logo
+  .attr("x", -48) // Adjust based on the size of your logo
+  .attr("y", -47) // Adjust based on the size of your logo
+  .attr("width", 100) // Set the width of the logo
   .attr("height", 100) // Set the height of the logo
   .attr("class", "wheel-logo");
 

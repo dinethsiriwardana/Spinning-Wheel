@@ -83,19 +83,19 @@
         .btn-gradient {
   background: radial-gradient(
     ellipse farthest-corner at right bottom,
-    #f8cfd7 0%,
-    #E24479 8%,
-    #E24479 30%,
-    #b92c5b 40%,
+    #315FAA 0%,
+    #315FAA 8%,
+    #315FAA 30%,
+    #315FAA 40%,
     transparent 80%
   ),
   radial-gradient(
     ellipse farthest-corner at left top,
-    #E24479 0%,
-    #E24479 8%,
-    #E24479 25%,
-    #E24479 62.5%,
-    #E24479 100%
+    #315FAA 0%,
+    #315FAA 8%,
+    #315FAA 25%,
+    #315FAA 62.5%,
+    #315FAA 100%
   );
   background-size: 150% 100%;
   transition: background-position 0.3s ease, transform 0.2s ease;
@@ -138,6 +138,27 @@
             height: 80px;
             object-fit: cover;
         }
+        .wheel-border {
+    position: relative;
+    width: 750px; /* Slightly larger than the wheel */
+    height: 750px;
+    border-radius: 100%;
+    border: 10px solid #315FAA; /* Change color as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#chart {
+    width: 500px;
+    height: 500px;
+    transform: scale(1.5) rotate(-90deg);
+    background-color: transparent;
+    /* transform: translateX(20px); Adjust this value to move it right */
+    margin-left: 114px; /* Adjust this value to move it right */
+
+}
 
         
     </style>
@@ -145,13 +166,16 @@
 <body>
     
     <div id="spin-container" class="spin-container">
-        <div class="container">
-            <div id="chart">
+        <div class="container"></div>
+        <div class="wheel-border">
+            <div id="chart"></div>
+        </div>
+        
             </div>
         </div>
     </div>
     <div id="modal">
-        <div id="contmodal" class="contmodal">
+        <div id="contmodal" class="contmodal" >
         <div class=" btn-gradient" id="modal-content">
             <span  id="close" class="close-button" >&times;</span>
             <h2 class="" id="congratulations"></h1>
