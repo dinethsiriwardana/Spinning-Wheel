@@ -9,9 +9,9 @@ var data = [
   { label: "Item6", value: 6, text: "Try Again", img: null, stock: 60 },
   { label: "Item7", value: 7, text: "", img: "images/umbrella.png", stock: 2 },
   { label: "Item8", value: 8, text: "", img: "images/pack.png", stock: 30 },
-  { label: "Item8", value: 9, text: "Try Again", img: null, stock: 30 },
-  { label: "Item8", value: 10, text: "", img: "images/pack.png", stock: 30 },
-  { label: "Item8", value: 11, text: "Try Again", img: null, stock: 30 },
+  { label: "Item9", value: 9, text: "Try Again", img: null, stock: 30 },
+  { label: "Item10", value: 10, text: "", img: "images/pack.png", stock: 30 },
+  { label: "Item11", value: 11, text: "Try Again", img: null, stock: 30 },
 ];
 
 // Function to save data to local storage
