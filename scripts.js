@@ -1,17 +1,36 @@
 // scripts.js
 
 var data = [
-  { label: "Item3", value: 1, text: "", img: "images/pack.png", stock: 50 },
-  { label: "Item2", value: 2, text: "Try Again", img: null, stock: 300 },
-  { label: "Item1", value: 3, text: "", img: "images/pack.png", stock: 50 },
-  { label: "Item4", value: 4, text: "Try Again", img: null, stock: 300 },
-  { label: "Item5", value: 5, text: "", img: "images/mug.png", stock: 50 },
-  { label: "Item6", value: 6, text: "Try Again", img: null, stock: 60 },
-  { label: "Item7", value: 7, text: "", img: "images/umbrella.png", stock: 2 },
-  { label: "Item8", value: 8, text: "", img: "images/pack.png", stock: 30 },
-  { label: "Item9", value: 9, text: "Try Again", img: null, stock: 30 },
-  { label: "Item10", value: 10, text: "", img: "images/pack.png", stock: 30 },
-  { label: "Item11", value: 11, text: "Try Again", img: null, stock: 30 },
+  {
+    label: "Item3",
+    value: 1,
+    text: "",
+    img: "images/Umbalakada.png",
+    stock: 50,
+  },
+  {
+    label: "Item2",
+    value: 2,
+    text: "",
+    img: "images/ChickenSoup.png",
+    stock: 300,
+  },
+  { label: "Item1", value: 3, text: "", img: "images/Biriyani.png", stock: 50 },
+  {
+    label: "Item4",
+    value: 4,
+    text: "",
+    img: "images/Umbalakada.png",
+    stock: 300,
+  },
+  {
+    label: "Item5",
+    value: 5,
+    text: "",
+    img: "images/ChickenSoup.png",
+    stock: 50,
+  },
+  { label: "Item6", value: 6, text: "", img: "images/Biriyani.png", stock: 60 },
 ];
 
 // Function to save data to local storage
@@ -57,17 +76,14 @@ loadDataFromLocalStorage();
 saveAllDataToLocalStorage();
 
 var colors = [
-  "#315FAA",
-  "#315FAA",
-  "#315FAA",
-  "#315FAA",
-  "#315FAA",
-  "#315FAA",
-  "#315FAA",
-  "#315FAA",
-  "#315FAA",
-  "#315FAA",
-  "#315FAA",
+  "#027937",
+  "#FFD32E",
+  "#027937",
+  "#FFD32E",
+  "#027937",
+  "#FFD32E",
+  "#027937",
+  "#FFD32E",
 ];
 
 var padding = { top: 20, right: 20, bottom: 2, left: 20 },
@@ -288,7 +304,7 @@ svg
   .style({ fill: "white" });
 
 container.append("circle").attr("cx", 0).attr("cy", 0).attr("r", 60).style({
-  fill: "#315FAA",
+  fill: "#FFD32E",
   cursor: "pointer",
   stroke: "#FFFFFF", // border color
   "stroke-width": "5", // border width
@@ -306,10 +322,10 @@ container
 container
   .append("image")
   .attr("xlink:href", "images/Logo.png") // Replace with the path to your logo
-  .attr("x", -48) // Adjust based on the size of your logo
-  .attr("y", -47) // Adjust based on the size of your logo
-  .attr("width", 100) // Set the width of the logo
-  .attr("height", 100) // Set the height of the logo
+  .attr("x", -37) // Adjust based on the size of your logo
+  .attr("y", -37) // Adjust based on the size of your logo
+  .attr("width", 80) // Set the width of the logo
+  .attr("height", 80) // Set the height of the logo
   .attr("class", "wheel-logo");
 
 function rotTween(to) {
