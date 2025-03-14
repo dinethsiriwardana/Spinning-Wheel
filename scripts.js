@@ -153,22 +153,27 @@ arcs
   })
   .attr("width", 60) // Image size
   .attr("height", 60) // Image size
+  .attr("class", "wheel-image")
   .attr("transform", function (d) {
     var angle = (d.startAngle + d.endAngle) / 2;
-    return (
-      "rotate(" +
-      ((angle * 180) / Math.PI - 90) +
-      "," +
-      Math.cos(angle - Math.PI / 2) * (r - 60) +
-      "," +
-      Math.sin(angle - Math.PI / 2) * (r - 60) +
-      ")"
-    );
+    var x = Math.cos(angle - Math.PI / 2) * (r - 60);
+    var y = Math.sin(angle - Math.PI / 2) * (r - 60);
+    // Initial 90 degree rotation on load
+    return "rotate(90," + x + "," + y + ")";
   })
   .style("visibility", function (d, i) {
     return data[i].img ? "visible" : "hidden";
   });
 
+function updateImageRotation() {
+  arcs.selectAll("image").attr("transform", function (d) {
+    var angle = (d.startAngle + d.endAngle) / 2;
+    var x = Math.cos(angle - Math.PI / 2) * (r - 60);
+    var y = Math.sin(angle - Math.PI / 2) * (r - 60);
+    // Counter-rotate the image to keep it upright
+    return "rotate(" + -((rotation % 360) - 90) + "," + x + "," + y + ")";
+  });
+}
 // Add text
 arcs
   .append("text")
@@ -268,6 +273,9 @@ function spin(d) {
     .attrTween("transform", rotTween)
     .ease(customEase) // Apply custom easing function
     .each("end", function () {
+      // Reset image rotation to keep them upright after spin
+      updateImageRotation();
+
       d3.select(".slice:nth-child(" + (picked + 1) + ") path");
       var giftText = data[picked].text;
       var giftImage = data[picked].img;
@@ -288,7 +296,6 @@ function spin(d) {
       container.on("click", spin); // Re-enable clicking to spin again
     });
 }
-
 svg
   .append("g")
   .attr(
