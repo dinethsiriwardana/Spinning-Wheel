@@ -5,32 +5,35 @@ var data = [
     label: "Item3",
     value: 1,
     text: "",
-    img: "images/Umbalakada.png",
+    img: "images/Comfort.png",
     stock: 50,
   },
   {
     label: "Item2",
     value: 2,
     text: "",
-    img: "images/ChickenSoup.png",
+    img: "images/sunlight.png",
     stock: 300,
   },
-  { label: "Item1", value: 3, text: "", img: "images/Biriyani.png", stock: 50 },
+  { label: "Item1", value: 3, text: "", img: "images/lb.png", stock: 50 },
+
   {
     label: "Item4",
     value: 4,
     text: "",
-    img: "images/Umbalakada.png",
+    img: "images/signal.png",
     stock: 300,
   },
   {
     label: "Item5",
     value: 5,
     text: "",
-    img: "images/ChickenSoup.png",
+    img: "images/Comfort.png",
     stock: 50,
   },
-  { label: "Item6", value: 6, text: "", img: "images/Biriyani.png", stock: 60 },
+  { label: "Item6", value: 6, text: "", img: "images/sunlight.png", stock: 60 },
+  { label: "Item1", value: 3, text: "", img: "images/lb.png", stock: 50 },
+  { label: "Item1", value: 3, text: "", img: "images/signal.png", stock: 50 },
 ];
 
 // Function to save data to local storage
@@ -209,7 +212,7 @@ window.addEventListener("click", function (event) {
     modal.style.display = "none";
 
     // Check and update stock
-    checkAndUpdateStock();
+    // checkAndUpdateStock();
   } else {
     // If the modal is not visible, spin the wheel
     spin();
@@ -408,15 +411,15 @@ function checkAndUpdateStock() {
     let updated = false;
 
     // Loop through items and check stock
-    data.forEach((item) => {
-      if (item.stock <= 0) {
-        // Update item if out of stock
-        item.text = "Try Again";
-        item.stock = "300";
-        item.img = null;
-        updated = true;
-      }
-    });
+    // data.forEach((item) => {
+    //   if (item.stock <= 0) {
+    //     // Update item if out of stock
+    //     item.text = "Try Again";
+    //     item.stock = "300";
+    //     item.img = null;
+    //     updated = true;
+    //   }
+    // });
 
     // If there were updates, save the updated data back to local storage
     if (updated) {
