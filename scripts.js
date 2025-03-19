@@ -12,7 +12,7 @@ var data = [
     label: "Item2",
     value: 2,
     text: "",
-    img: "images/sunlight.png",
+    img: "images/signal.png",
     stock: 300,
   },
   { label: "Item1", value: 3, text: "", img: "images/lb.png", stock: 50 },
@@ -21,7 +21,7 @@ var data = [
     label: "Item4",
     value: 4,
     text: "",
-    img: "images/signal.png",
+    img: "images/sunlight.png",
     stock: 300,
   },
   {
@@ -80,13 +80,13 @@ saveAllDataToLocalStorage();
 
 var colors = [
   "#027937",
-  "#FFD32E",
+  "#FFFFFF",
   "#027937",
-  "#FFD32E",
+  "#FFFFFF",
   "#027937",
-  "#FFD32E",
+  "#FFFFFF",
   "#027937",
-  "#FFD32E",
+  "#FFFFFF",
 ];
 
 var padding = { top: 20, right: 20, bottom: 2, left: 20 },
@@ -148,14 +148,14 @@ arcs
   })
   .attr("x", function (d, i) {
     var angle = (d.startAngle + d.endAngle) / 2;
-    return Math.cos(angle - Math.PI / 2) * (r - 60) - 30; // Adjusted position
+    return Math.cos(angle - Math.PI / 2) * (r - 60) - 40; // Adjusted position
   })
   .attr("y", function (d, i) {
     var angle = (d.startAngle + d.endAngle) / 2;
     return Math.sin(angle - Math.PI / 2) * (r - 60) - 30; // Adjusted position
   })
-  .attr("width", 60) // Image size
-  .attr("height", 60) // Image size
+  .attr("width", 80) // Image size
+  .attr("height", 80) // Image size
   .attr("class", "wheel-image")
   .attr("transform", function (d) {
     var angle = (d.startAngle + d.endAngle) / 2;
@@ -314,9 +314,9 @@ svg
   .style({ fill: "white" });
 
 container.append("circle").attr("cx", 0).attr("cy", 0).attr("r", 60).style({
-  fill: "#FFD32E",
+  fill: "#FFFFFF",
   cursor: "pointer",
-  stroke: "#FFFFFF", // border color
+  stroke: "#027937", // border color
   "stroke-width": "5", // border width
 });
 
